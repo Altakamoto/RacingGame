@@ -5,6 +5,7 @@ int[] places = new int[10];
 Button start;
 int placesFor = 0;
 boolean started = false;
+double speedSet = 1.50;
 public void setup()
 {
   size(400, 400);
@@ -38,9 +39,10 @@ public void draw()
     if(finished == 10) {
       for(int i = 0; i < places.length; i++) 
       {
-        text(i + 1, racer[places[i]].getX(), racer[places[i]].getY() - 3);
+        text(i + 1, racer[places[i]].getX() + 10, racer[places[i]].getY() - 8);
       }
     }
+    racer[1].setSpeed(speedSet);
   } else {
     background(255);
     fill(255);
@@ -63,3 +65,8 @@ public void draw()
       }
   }
 }
+public void mouseClicked()
+{
+  speedSet += .07;
+}
+  
